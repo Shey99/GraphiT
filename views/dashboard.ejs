@@ -1,0 +1,28 @@
+<h1 >Dashboard</h1>
+<p class="lead mb-3">Welcome <span class="name"><%= user.name %></span></p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<br>
+
+<form>
+  <input type="text" class="jsonInput form-control d-inline-block w-25 mt-5" placeholder="Add JSON file" id="inputDefault">
+  <button type="submit" class="addJson btn btn-primary">Submit</button>
+</form>
+
+
+
+<h3 class="mt-5">Your json files:</h3>
+  <% for (let i = 0; i < profile.length; i++ ) { %>
+    <ul>
+      <% if (profile[i].name == user.name) { %>
+        <% profile[i].api.forEach( (each) => { %>
+          <li>
+            <a href="#">
+              <%= each %>
+            </a>
+          </li>
+        <% }) %>
+    </ul>
+  <% } %>
+<% } %>
+
+<a href="/users/logout"><button type="button" class="del btn btn-outline-danger mt-5">Delete Profile</button></a>
