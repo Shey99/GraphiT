@@ -1,4 +1,4 @@
-# demo-layout
+# Demo Day
 
 <a href="https://shielded-cliffs-38025.herokuapp.com/">Open in Heroku</a>
 
