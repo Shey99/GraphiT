@@ -25,3 +25,6 @@ Technologies used:
 
 1. run `node server.js`
 2. Navigate to `localhost:3000`
+
+## Credits
+Modified from Travery Media's tutorial
