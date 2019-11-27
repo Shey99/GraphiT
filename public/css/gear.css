@@ -1,82 +1,68 @@
-body {
-  background: rgb(236, 240, 241)
-}
-li {
-  list-style: none;
-}
-.title {
-  margin-top: 4%;
-}
-.circle-container {
-  margin-top: 8% !important;
-}
 .circle {
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
+	transform: scale(0.4);
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: 25px solid rgb(44,62,80);
+  border: 25px solid #4db6ac;
   animation-name: rotate;
-  animation-duration: 8s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
 @keyframes rotate {
   100% {
-    transform: rotate(360deg);
+    transform:  scale(0.4) rotate(360deg);
   }
 }
 .square {
   height: 30px;
   width: 30px;
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   border-radius: 3px;
   position: relative;
 }
 
 .squareOne {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   left: 35px;
   bottom: 48px;
 }
 .squareTwo {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   left: 94px;
   bottom: 54px;
   transform: rotate(-40deg);
 }
 .squareThree {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   bottom: 83px;
   right: 26px;
   transform: rotate(40deg);
 }
 .squareFour {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   bottom: 56px;
   left: 116px;
 }
 .squareFive {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   bottom: 86px;
   right: 48px;
 }
 .squareSix {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   bottom: 62px;
   left: 98px;
   transform: rotate(132deg);
 }
 .squareSeven {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   bottom: 88px;
   right: 26px;
   transform: rotate(-132deg);
 }
 .squareEight {
-  background-color: rgb(44,62,80);
+  background-color: #4db6ac;
   bottom: 94px;
   left: 37px;
 }

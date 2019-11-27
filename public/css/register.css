@@ -1,0 +1,38 @@
+body {
+  background: rgb(27, 29, 34);
+  color: #4db6ac;
+  font-family: 'Poppins', sans-serif;
+}
+nav {
+  display: flex;
+  height: 14vh;
+  background: transparent;
+  box-shadow: 0 0;
+  align-items: center;
+}
+h1 {
+  font-size: 40px;
+  color: #4db6ac;
+}
+h2 {
+  text-align: center;
+  font-size: 40px;
+}
+.wrap {
+  width: 50%;
+  margin: auto;
+}
+input {
+  color: white;
+}
+.submit {
+  display:block;
+  margin: auto;
+}
+.existing {
+  line-height: 4;
+
+}
+.existing a:hover {
+  text-decoration: underline;
+}

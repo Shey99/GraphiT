@@ -1,4 +1,4 @@
-<div class="row mt-5">
+<!-- <div class="row mt-5">
   <div class="col-md-6 m-auto">
     <div class="card card-body">
       <h1 class="text-center mb-3"> Login</h1>
@@ -19,4 +19,47 @@
       </p>
     </div>
   </div>
+</div> -->
+
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/gear.css">
+<link rel="stylesheet" href="/css/register.css">
+
+<nav>
+  <div class="circle-container">
+    <div class="circle">
+      <div class="square squareOne"></div>
+      <div class="square squareTwo"></div>
+      <div class="square squareThree"></div>
+      <div class="square squareFour"></div>
+      <div class="square squareFive"></div>
+      <div class="square squareSix"></div>
+      <div class="square squareSeven"></div>
+      <div class="square squareEight"></div>
+    </div>
+  </div>
+  <a href="/"><h1>GraphiT</h1></a>
+</nav>
+
+<h2>Log In</h2>
+<div class="wrap">
+  <div class="row text-white">
+      <form class="col s12" action="/users/login" method="POST">
+        <% include ./partials/messages %>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" >
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" name="password" value="<%= typeof password != 'undefined' ? password : '' %>">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <button class="btn-large waves-effect waves-light submit" type="submit">Login</button>
+      </form>
+      <p class="existing">No Account? <a href="/users/register">Register</a></p>
+    </div>
 </div>
