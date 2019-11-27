@@ -1,0 +1,27 @@
+body {
+  background: rgb(27, 29, 34);
+  color: #4db6ac;
+  font-family: 'Poppins', sans-serif;
+  margin: 2% 0 4% 4%;
+  line-height: 2;
+}
+h1 {
+  font-size: 30px;
+  text-transform: capitalize;
+}
+h3 {
+  line-height: 2;
+  font-size: 40px;
+}
+.newGraph {
+  width: 20%;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255,255,255,0.8);
+  font-weight: bold;
+  margin: 0 2% 2% 0;
+  font-size: 20px;
+}

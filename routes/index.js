@@ -17,6 +17,10 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
   })
 })
 
+router.get('/create', ensureAuthenticated, (req, res) => {
+  res.render('create')
+})
+
 router.put('/add', (req, res) => {
   const db = mongoose.connection;
   db.collection('users').findOneAndUpdate({name: req.body.user}, {

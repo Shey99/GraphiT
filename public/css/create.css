@@ -1,0 +1,46 @@
+body {
+  background: rgb(27, 29, 34);
+  color: #4db6ac;
+  font-family: 'Poppins', sans-serif;
+  line-height: 2;
+}
+h1 {
+  margin: 5% 0 4% 3%;
+  font-size: 40px;
+}
+.graphOptions {
+  display: flex;
+  width: 85%;
+  height: 350px;
+  margin:auto;
+  justify-content: space-between;
+}
+.option {
+  height: 100%;
+  width: 23%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+.option:hover {
+  outline: 2px solid white;
+}
+.line {
+  background: #004d40;
+}
+.bar {
+  background: #006064;
+}
+.pie {
+  background: #0d47a1;
+}
+.scatter {
+  background: #311b92;
+}
+.back {
+  margin: 3% 0 0 3%;
+}

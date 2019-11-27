@@ -14,7 +14,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  api: {
+  graphs: {
     type: Array
   }
 });

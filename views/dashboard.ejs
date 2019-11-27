@@ -1,20 +1,20 @@
-<h1 >Dashboard</h1>
-<p class="lead mb-3">Welcome <span class="name"><%= user.name %></span></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/dashboard.css">
+
+<h1><%= user.name %></h1>
+<a href="/users/logout" class="btn">Logout</a>
 <br>
 
-<form>
-  <input type="text" class="jsonInput form-control d-inline-block w-25 mt-5" placeholder="Add JSON file" id="inputDefault">
-  <button type="submit" class="addJson btn btn-primary">Submit</button>
-</form>
 
-
-
-<h3 class="mt-5">Your json files:</h3>
+<h3>Your Graphs:</h3>
+  <div class="newGraph">
+    <p>Create a New Graph</p>
+    <a href="/create" class="btn-floating btn-large waves-effect waves-light plus"><i class="material-icons">add</i></a>
+  </div>
   <% for (let i = 0; i < profile.length; i++ ) { %>
     <ul>
       <% if (profile[i].name == user.name) { %>
-        <% profile[i].api.forEach( (each) => { %>
+        <% profile[i].graphs.forEach( (each) => { %>
           <li>
             <a href="#">
               <%= each %>
@@ -25,4 +25,4 @@
   <% } %>
 <% } %>
 
-<a href="/users/logout"><button type="button" class="del btn btn-outline-danger mt-5">Delete Profile</button></a>
+<!-- <a href="/users/logout" class="delete"><button type="button" class="del btn red">Delete Profile</button></a> -->
