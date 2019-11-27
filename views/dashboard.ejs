@@ -7,23 +7,27 @@
 
 
 <h3>Your Graphs:</h3>
-  <div class="newGraph">
+
+<ul>
+  <li class="newGraph">
     <p>Create a New Graph</p>
     <a href="/create" class="btn-floating btn-large waves-effect waves-light plus"><i class="material-icons">add</i></a>
-  </div>
-  <% for (let i = 0; i < profile.length; i++ ) { %>
-    <ul>
+  </li>
+    <% for (let i = 0; i < profile.length; i++ ) { %>
       <% if (profile[i].name == user.name) { %>
         <% profile[i].graphs.forEach( (each) => { %>
-          <li>
+          <li class="newGraph">
             <a href="#">
-              <%= each %>
+              <%= each.graphName %>
             </a>
           </li>
         <% }) %>
-    </ul>
-  <% } %>
-<% } %>
+      <% } %>
+    <% } %>
+</ul>
+
+
+
 
 
 <script src="/js/dashboard.js" charset="utf-8"></script>

@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+const db = mongoose.connection;
 
 // Welcome Page
 router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
-  const db = mongoose.connection;
   db.collection('users').find().toArray((err, result) => {
     res.render('dashboard', {
       user: req.user,
@@ -21,27 +21,21 @@ router.get('/create', ensureAuthenticated, (req, res) => {
   res.render('create')
 })
 
-router.put('/add', (req, res) => {
-  const db = mongoose.connection;
-  db.collection('users').findOneAndUpdate({name: req.body.user}, {
-    $push: {
-      api: req.body.file
+router.put('/createGraph', (req, res) => {
+  db.collection('users').findOneAndUpdate(
+    {email: req.user.email},
+    { $push: { graphs:
+      { graphName: req.body.graphName,
+        graphType: req.body.graphType,
+        graphInfo: []
+      }
     }
-  }, {
-    sort: {_id: -1},
-  }, (err, result) => {
+  },
+    (err, result) => {
     if (err) return res.send(err)
-    res.send(result)
+    res.send(result);
   })
 })
 
-router.delete('/delete', (req, res) => {
-  const db = mongoose.connection;
-  db.collection('users').findOneAndDelete({name: req.body.user},
-  (err, result) => {
-    if (err) return res.send(500, err)
-    res.send({message: 'profile deleted'})
-  })
-})
 
 module.exports = router;

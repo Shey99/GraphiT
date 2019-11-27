@@ -3,18 +3,23 @@ body {
   color: #4db6ac;
   font-family: 'Poppins', sans-serif;
   line-height: 2;
+  max-width: 100%;
+  overflow-x: hidden;
 }
+
 h1 {
   margin: 5% 0 4% 3%;
   font-size: 40px;
 }
+
 .graphOptions {
   display: flex;
   width: 85%;
   height: 350px;
-  margin:auto;
+  margin: auto;
   justify-content: space-between;
 }
+
 .option {
   height: 100%;
   width: 23%;
@@ -26,21 +31,52 @@ h1 {
   font-weight: bold;
   color: white;
 }
+
 .option:hover {
   outline: 2px solid white;
 }
+
 .line {
   background: #004d40;
 }
+
 .bar {
   background: #006064;
 }
+
 .pie {
   background: #0d47a1;
 }
+
 .scatter {
   background: #311b92;
 }
+
 .back {
   margin: 3% 0 0 3%;
+}
+
+.createWrap {
+  position: absolute;
+  width: 35%;
+  left: 35%;
+  top: 35%;
+  display: none;
+  z-index: 2;
+  background: white;
+}
+
+.buttonWrap {
+  text-align: center;
+}
+
+.createBtn {
+  display: block;
+  margin: auto;
+  display: inline;
+  margin-right: 3%;
+}
+
+.cancelBtn {
+  color: black;
 }

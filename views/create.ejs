@@ -1,13 +1,34 @@
 <link rel="stylesheet" href="/css/reset.css">
 <link rel="stylesheet" href="/css/create.css">
 
-<h1>Choose A Graph: </h1>
-
-<div class="graphOptions">
-  <div class="option line">Line</div>
-  <div class="option bar">Bar</div>
-  <div class="option pie">Pie</div>
-  <div class="option scatter">Scatter</div>
+<div class="createWrap">
+  <div class="row">
+    <form class="col s12">
+      <span class="graphType"></span> Graph
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" class="graphName">
+          <label for="graphName">Graph Name</label>
+        </div>
+      </div>
+      <button type="button" name="button" class="btn teal lighten-5 cancelBtn">Cancel</button>
+      <button type="submit" name="button" class="btn createBtn">Create</button>
+    </form>
+  </div>
 </div>
 
-<a href="/dashboard" class="btn back">Back to Dashboard</a>
+<div class="graphOptionsWrap">
+  <h1>Choose A Graph: </h1>
+
+  <div class="graphOptions">
+    <div class="option line">Line</div>
+    <div class="option bar">Bar</div>
+    <div class="option pie">Pie</div>
+    <div class="option scatter">Scatter</div>
+  </div>
+
+  <a href="/dashboard" class="btn back">Back to Dashboard</a>
+</div>
+
+
+<script src="/js/create.js" charset="utf-8"></script>
