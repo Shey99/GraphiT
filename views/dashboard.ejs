@@ -13,20 +13,14 @@
     <p>Create a New Graph</p>
     <a href="/create" class="btn-floating btn-large waves-effect waves-light plus"><i class="material-icons">add</i></a>
   </li>
-    <% for (let i = 0; i < profile.length; i++ ) { %>
-      <% if (profile[i].name == user.name) { %>
-        <% profile[i].graphs.forEach( (each) => { %>
-          <li class="newGraph">
-            <a href="#">
-              <%= each.graphName %>
-            </a>
-          </li>
-        <% }) %>
-      <% } %>
-    <% } %>
+  <% for (let i = 0; i < graphs.length; i++ ) { %>
+    <li class="newGraph">
+      <a href="/graphs/<%= i %>">
+        <%= graphs[i].graphName %>
+      </a>
+    </li>
+  <% } %>
 </ul>
-
-
 
 
 

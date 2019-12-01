@@ -1,0 +1,31 @@
+body {
+  background: rgb(27, 29, 34);
+  color: #4db6ac;
+  font-family: 'Poppins', sans-serif;
+  margin: 2% 3% 3%;
+}
+nav {
+  display: flex;
+  height: auto;
+  background: transparent;
+  box-shadow: 0 0;
+  align-items: center;
+  color: #4db6ac;
+}
+h1 {
+  font-size: 50px;
+  margin-bottom: 3%;
+}
+.back {
+  margin-left: auto;
+  margin-right: 3%;
+}
+.save {
+  margin-right: 3%;
+}
+form {
+  margin-top: 5%
+}
+input {
+  color: white;
+}

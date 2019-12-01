@@ -14,9 +14,6 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  graphs: {
-    type: Array
-  }
 });
 
 const User = mongoose.model('User', UserSchema, 'users');

@@ -21,7 +21,7 @@ cancelBtn.addEventListener('click', () => {
 
 createBtn.addEventListener('click', () => {
   fetch('createGraph', {
-          method: 'put',
+          method: 'post',
           headers: {
             'Content-Type': 'application/json'
           },

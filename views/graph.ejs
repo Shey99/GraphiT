@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/graph.css">
+<script src="https://kit.fontawesome.com/0ea786f096.js" crossorigin="anonymous"></script>
+
+
+<nav>
+  <a href="/dashboard" class="btn back">Back to Dashboard</a>
+  <a href="#" class="waves-effect waves-light btn green lighten-1 save">Save</a>
+</nav>
+
+<h1 class="graphName"><%= graph.graphName %></h1>
+<div class="row">
+    <form class="col s4">
+      <% for (let i = 0; i < graph.graphInfo.length; i++) { %>
+        <div class="row field">
+          <div class="input-field col s6">
+            <input type="text" class="input" value="<%= [Object.keys(graph.graphInfo[i])[0]] %>">
+            <label>Input</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" class="value" value="<%= [Object.values(graph.graphInfo[i])[0]] %>">
+            <label>Value</label>
+          </div>
+        </div>
+      <% } %>
+      <div class="row field">
+        <div class="input-field col s6">
+          <input type="text" class="input">
+          <label>Input</label>
+        </div>
+        <div class="input-field col s6">
+          <input type="text" class="value">
+          <label>Value</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+<button type="button" name="button" class="addField btn teal darken-4">Add Field</button>
+<button type="submit" name="button" class="btn submitFields">Submit</button>
+
+<br>
+
+<script src="/js/graph.js" charset="utf-8"></script>
