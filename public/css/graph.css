@@ -29,3 +29,21 @@ form {
 input {
   color: white;
 }
+.field {
+  margin-bottom: 0;
+}
+.cancel {
+  color: grey;
+  cursor: pointer;
+  font-size: 1.5rem !important;
+  margin-right: 2%;
+  opacity: 0.3;
+}
+.cancel:hover {
+  color: rgb(196, 61, 33);
+  opacity: 1;
+}
+.each {
+  display: flex;
+  align-items: center;
+}

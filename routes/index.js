@@ -44,11 +44,21 @@ router.post('/createGraph', (req, res) => {
 })
 
 router.put('/graphs/changeGraph', (req, res) => {
-  console.log('hello');
   Graph.findOneAndUpdate({email: req.user.email, graphName: req.body.graphName},
     {
       $set: {graphInfo: req.body.graphInfo}
     },
+    (err, result) => {
+    if (err) return res.send(err)
+    res.send(result);
+    })
+})
+
+router.put('/graphs/deleteField', (req, res) => {
+  let input = req.body.input;
+  let value = req.body.value;
+  Graph.findOneAndUpdate({ email: req.user.email, graphName: req.body.graphName },
+    { $pull: { graphInfo : { [input] : value } } },
     (err, result) => {
     if (err) return res.send(err)
     res.send(result);
