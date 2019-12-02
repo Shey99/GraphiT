@@ -20,39 +20,51 @@ var generateData = () => {
 }
 
 var generateGraph = () => {
-  let data = Object.keys(generateData())
-  console.log(data);
+  let data = generateData()
 
+  let xDomain = [];
+  for (let i = 0; i < data.length; i++) {
+    xDomain.push(Object.keys(data[i])[0]);
+  }
+
+  let maxY = 0;
+  for (let i = 0; i < data.length; i++) {
+    if ((Object.values(data[i])[0]) > maxY) {
+      maxY = (Object.values(data[i])[0])
+    }
+  }
+
+  console.log(maxY);
 
   const svg = d3.select('svg');
 
     const y = d3.scaleLinear()
-      .domain([0, 40])
+      .domain([0, maxY*1.7])
       .range([0, 500]);
 
     const x = d3.scaleBand()
-      .domain(Object.keys())
+      .domain(xDomain)
       .range([0,500])
-      .paddingInner(0.2)
-      .paddingOuter(0.2)
+      .paddingInner(0.1)
+      .paddingOuter(0.1)
+
 
     const rects = svg.selectAll('rect')
       .data(data)
 
-    rects.attr('width', 20)
-      .attr('height', d => 30)
-      .attr('fill', 'teal')
-      .attr('x', d => 5)
 
-    // append the enter selection to the DOM
+    rects.attr('width', x.bandwidth)
+      .attr('height', (d, i) => { return  y(d[xDomain[i]]) } )
+      .attr('fill', 'teal')
+      .attr('x', d => x((Object.keys(d)[0])))
+
     rects.enter()
       .append('rect')
-      .attr('width', 20)
-      .attr('height', d => 30)
+      .attr('width', x.bandwidth)
+      .attr('height', (d, i) => { return  y(d[xDomain[i]]) } )
       .attr('fill', 'teal')
-      .attr('x', (d, i) => i*20 )
+      .attr('x', d => x((Object.keys(d)[0])))
 
-    // console.log();
 }
 generateGraph()
 
