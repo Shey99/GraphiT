@@ -1,9 +1,8 @@
 const addField = document.querySelector('.addField');
 const submitFields = document.querySelector('.submitFields');
 const form = document.querySelector('form');
-const graphName = document.querySelector('.graphName').innerHTML
-const cancel = document.querySelectorAll('.cancel')
-
+const graphName = document.querySelector('.graphName').innerHTML;
+const cancel = document.querySelectorAll('.cancel');
 
 var generateData = () => {
   let data = [];
@@ -27,9 +26,11 @@ var generateGraph = () => {
     xDomain.push(Object.keys(data[i])[0]);
   }
 
+  console.log(xDomain);
+
   let maxY = 0;
   for (let i = 0; i < data.length; i++) {
-    if ((Object.values(data[i])[0]) > maxY) {
+    if (parseInt((Object.values(data[i])[0])) > maxY) {
       maxY = (Object.values(data[i])[0])
     }
   }
@@ -38,49 +39,39 @@ var generateGraph = () => {
 
   const svg = d3.select('svg');
 
-    const y = d3.scaleLinear()
-      .domain([0, maxY*1.7])
-      .range([0, 500]);
+  const y = d3.scaleLinear()
+    .domain([0, maxY * 1.4])
+    .range([0, 500]);
 
-    const x = d3.scaleBand()
-      .domain(xDomain)
-      .range([0,500])
-      .paddingInner(0.1)
-      .paddingOuter(0.1)
-
-
-    const rects = svg.selectAll('rect')
-      .data(data)
+  const x = d3.scaleBand()
+    .domain(xDomain)
+    .range([0, 600])
+    .paddingInner(0.05)
+    .paddingOuter(0.2)
 
 
-    rects.attr('width', x.bandwidth)
-      .attr('height', (d, i) => { return  y(d[xDomain[i]]) } )
-      .attr('fill', 'teal')
-      .attr('x', d => x((Object.keys(d)[0])))
+  const rects = svg.selectAll('rect')
+    .data(data)
 
-    rects.enter()
-      .append('rect')
-      .attr('width', x.bandwidth)
-      .attr('height', (d, i) => { return  y(d[xDomain[i]]) } )
-      .attr('fill', 'teal')
-      .attr('x', d => x((Object.keys(d)[0])))
+
+  rects.attr('width', x.bandwidth)
+    .attr('height', (d, i) => {
+      return y(d[xDomain[i]])
+    })
+    .attr('fill', 'teal')
+    .attr('x', d => x((Object.keys(d)[0])))
+
+  rects.enter()
+    .append('rect')
+    .attr('width', x.bandwidth)
+    .attr('height', (d, i) => {
+      return y(d[xDomain[i]])
+    })
+    .attr('fill', 'teal')
+    .attr('x', d => x((Object.keys(d)[0])))
 
 }
 generateGraph()
-
-addField.addEventListener('click', () => {
-  let newInput = document.querySelector('.newInput').value;
-  let newValue = document.querySelector('.newValue').value;
-  console.log(newInput);
-  console.log(newValue);
-  if (newInput != '' && newValue != '') {
-    const each = document.querySelectorAll('.each');
-    let lastEach = each[each.length - 2];
-    lastEach.insertAdjacentHTML(
-      'afterend',
-      '<div class="row field"><div class="input-field col s6"><input type="text" class="input"><label>Input</label></div><div class="input-field col s6"><input type="text" class="value"><label>Value</label></div></div>')
-  }
-})
 
 submitFields.addEventListener('click', () => {
   let arr = [];
