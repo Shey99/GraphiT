@@ -1,4 +1,4 @@
-# Demo Day
+# GraphiT
 
 <a href="https://shielded-cliffs-38025.herokuapp.com/">Open in Heroku</a>
 
