@@ -20,8 +20,7 @@
     "express-session": "^1.17.0",
     "mongoose": "^5.7.12",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "svg2img": "^0.6.1"
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.0"

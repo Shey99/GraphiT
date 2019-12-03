@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 var fs = require('fs');
-var svg2img = require('svg2img')
 const mongoose = require('mongoose')
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 const db = mongoose.connection;
@@ -42,11 +41,6 @@ router.post('/createGraph', (req, res) => {
       res.redirect('/users/login');
     })
     .catch(err => console.log(err));
-})
-
-router.post('/graphs/download', (req, res) => {
-  const svg = req.body.svg.trim()
-  console.log(svg);
 })
 
 router.put('/graphs/changeGraph', (req, res) => {

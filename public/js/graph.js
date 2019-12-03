@@ -157,22 +157,14 @@ for (let i = 0; i < cancel.length; i++) {
 }
 
 download.addEventListener('click', () => {
-  const canvas = document.querySelector('.canvas').innerHTML
-  console.log(canvas);
-  fetch('/graphs/download', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        svg: canvas
-      })
+  const canvas = document.querySelector('.canvas');
+  domtoimage.toPng(canvas)
+    .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
     })
-    .then(res => {
-      if (res.ok) return res.json()
-    }).
-  then(data => {
-    console.log(data)
-    // window.location.reload(true)
-  })
+    .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+    });
 })
