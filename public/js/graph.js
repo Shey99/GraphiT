@@ -158,13 +158,21 @@ for (let i = 0; i < cancel.length; i++) {
 
 download.addEventListener('click', () => {
   const canvas = document.querySelector('.canvas');
-  domtoimage.toPng(canvas)
+  // domtoimage.toPng(canvas)
+  //   .then(function (dataUrl) {
+  //       var img = new Image();
+  //       img.src = dataUrl;
+  //       document.body.appendChild(img);
+  //   })
+  //   .catch(function (error) {
+  //       console.error('oops, something went wrong!', error);
+  //   });
+
+    domtoimage.toPng(canvas, { quality: 1.0 })
     .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        document.body.appendChild(img);
-    })
-    .catch(function (error) {
-        console.error('oops, something went wrong!', error);
+        var link = document.createElement('a');
+        link.download = 'my-image-name.png';
+        link.href = dataUrl;
+        link.click();
     });
 })
