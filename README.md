@@ -15,6 +15,7 @@ Technologies used:
  </ul>
 
 ![screenshot](/screenshot.png)
+![screenshot](/screenshot2.png)
 
 ## Installation
 
