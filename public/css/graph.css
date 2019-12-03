@@ -47,7 +47,6 @@ input {
   display: flex;
   align-items: center;
 }
-.resetColor {
-  display: block;
-  margin: auto
+.canvas {
+  
 }
