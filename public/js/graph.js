@@ -3,6 +3,7 @@ const submitFields = document.querySelector('.submitFields');
 const form = document.querySelector('form');
 const graphName = document.querySelector('.graphName').innerHTML;
 const cancel = document.querySelectorAll('.cancel');
+const download = document.querySelector('.download');
 
 var generateData = () => {
   let data = [];
@@ -154,3 +155,24 @@ for (let i = 0; i < cancel.length; i++) {
     })
   })
 }
+
+download.addEventListener('click', () => {
+  const canvas = document.querySelector('.canvas').innerHTML
+  console.log(canvas);
+  fetch('/graphs/download', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        svg: canvas
+      })
+    })
+    .then(res => {
+      if (res.ok) return res.json()
+    }).
+  then(data => {
+    console.log(data)
+    // window.location.reload(true)
+  })
+})

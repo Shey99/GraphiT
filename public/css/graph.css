@@ -20,7 +20,7 @@ h1 {
   margin-left: auto;
   margin-right: 3%;
 }
-.save {
+.download {
   margin-right: 3%;
 }
 form {
@@ -46,7 +46,4 @@ input {
 .each {
   display: flex;
   align-items: center;
-}
-.canvas {
-  
 }
