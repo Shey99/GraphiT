@@ -1,4 +1,4 @@
-# Demo Day
+# GraphiT
 
 <a href="https://shielded-cliffs-38025.herokuapp.com/">Open in Heroku</a>
 
@@ -15,6 +15,7 @@ Technologies used:
  </ul>
 
 ![screenshot](/screenshot.png)
+![screenshot](/screenshot2.png)
 
 ## Installation
 
@@ -25,6 +26,3 @@ Technologies used:
 
 1. run `npm run dev`
 2. Navigate to `localhost:3000`
-
-## Credits
-Modified from Travery Media's tutorial
