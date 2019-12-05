@@ -59,3 +59,7 @@
 <% if (graph.graphType === "Bar") { %>
   <script src="/js/bar.js" charset="utf-8"></script>
 <% } %>
+<% if (graph.graphType === "Pie") { %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js" charset="utf-8"></script>
+  <script src="/js/pie.js" charset="utf-8"></script>
+<% } %>
