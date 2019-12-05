@@ -90,15 +90,18 @@ var generateGraph = () => {
   const xAxis = d3.axisBottom(x)
   const yAxis = d3.axisLeft(y)
 
-
   xAxisGroup.call(xAxis)
   yAxisGroup.call(yAxis)
 
+  xAxisGroup.selectAll('text')
+    .attr('transform', 'rotate(-40)')
+    .attr('text-anchor', 'end')
+    .attr('fill', 'white')
+
+  yAxisGroup.selectAll('text')
+    .attr('fill', 'white')
 }
 generateGraph()
-
-
-
 
 submitFields.addEventListener('click', () => {
   let arr = [];
@@ -158,20 +161,10 @@ for (let i = 0; i < cancel.length; i++) {
 
 download.addEventListener('click', () => {
   const canvas = document.querySelector('.canvas');
-  // domtoimage.toPng(canvas)
-  //   .then(function (dataUrl) {
-  //       var img = new Image();
-  //       img.src = dataUrl;
-  //       document.body.appendChild(img);
-  //   })
-  //   .catch(function (error) {
-  //       console.error('oops, something went wrong!', error);
-  //   });
-
-    domtoimage.toPng(canvas, { quality: 1.0 })
+    domtoimage.toPng(canvas, { quality: 0 })
     .then(function (dataUrl) {
         var link = document.createElement('a');
-        link.download = 'my-image-name.png';
+        link.download = 'graph.png';
         link.href = dataUrl;
         link.click();
     });

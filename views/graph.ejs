@@ -3,7 +3,6 @@
 <script src="/js/dom-to-image.min.js" />
 <script src="https://kit.fontawesome.com/0ea786f096.js" crossorigin="anonymous"></script>
 
-
 <nav>
   <a href="/dashboard" class="btn back">Back to Dashboard</a>
   <a href="#" class="waves-effect waves-light btn green lighten-1 download">Download</a>
@@ -56,6 +55,7 @@
 </div>
 
 <br>
-
 <script src="https://d3js.org/d3.v5.js"></script>
-<script src="/js/graph.js" charset="utf-8"></script>
+<% if (graph.graphType === "Bar") { %>
+  <script src="/js/bar.js" charset="utf-8"></script>
+<% } %>
