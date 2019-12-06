@@ -34,7 +34,7 @@ var generateGraph = () => {
 
   const svg = d3.select('.canvas')
     .append('svg')
-      .attr('width', dims.width + 150)
+      .attr('width', dims.width + 200)
       .attr('height', dims.height + 50)
 
   const graph = svg.append('g')
