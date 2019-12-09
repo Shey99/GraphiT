@@ -102,8 +102,6 @@ const generateData = () => {
 
 update(generateData())
 
-const table = document.querySelector('.table');
-
 submitFields.addEventListener('click', () => {
   let arr = [];
   let inputs = document.querySelectorAll('.input');
