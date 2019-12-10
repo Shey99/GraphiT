@@ -26,10 +26,8 @@ const graph = svg.append('g')
 const y = d3.scaleLinear()
   .range([graphHeight, 0]);
 
-const x = d3.scaleBand()
+const x = d3.scalePoint()
   .range([0, graphWidth])
-  .paddingInner(0.05)
-  .paddingOuter(0.2)
 
 // Create axes group
 const xAxisGroup = graph.append('g').attr('transform', `translate(0, ${graphHeight})`)
@@ -39,38 +37,51 @@ const yAxisGroup = graph.append('g')
 const xAxis = d3.axisBottom(x)
 const yAxis = d3.axisLeft(y)
 
+// // D3 line generator
+// const line = d3.line()
+//   .x(function(d, i){return (graphWidth/(xDomain.length-1) * i)})
+//   .y(function(d, i){return y(d[xDomain[i]])})
+//
+// // Line Path Element
+// const path = graph.append('path')
+
 // Update Function
 const update = (data) => {
 
-  // Update scale domains
+  // Set scale domains
   const xDomain = data.map(item => Object.keys(item)[0])
-  const max = d3.max(data, d => Number(Object.values(d)[0]))
+  const yMax = d3.max(data, d => Number(Object.values(d)[0]))
 
-  y.domain([0, d3.max(data, d => Number(Object.values(d)[0]))])
+  y.domain([0, yMax])
   x.domain(xDomain)
 
-  // Join data to rects
-  const rects = graph.selectAll('rect')
+  // D3 line generator
+  const line = d3.line()
+    .x(function(d, i){return (graphWidth/(xDomain.length-1) * i)})
+    .y(function(d, i){return y(d[xDomain[i]])})
+
+  // Line Path Element
+  const path = graph.append('path')
+
+  path.data([data])
+    .attr('fill', 'none')
+    .attr('stroke', 'teal')
+    .attr('stroke-width', '2')
+    .attr('d', line)
+
+  // Join data to circles
+  const circles = graph.selectAll('circle')
     .data(data)
 
-  // Remove Exit Selection
-  rects.exit().remove()
-
-  // Update Current Selection In DOM
-  rects.attr('width', x.bandwidth)
-    .attr('height', (d, i) => { return graphHeight - y(d[xDomain[i]])})
-    .attr('fill', 'teal')
-    .attr('x', d => x((Object.keys(d)[0])))
-    .attr('y', (d, i) => y(d[xDomain[i]]))
 
   // Append the enter selection to DOM
-  rects.enter()
-    .append('rect')
-    .attr('width', x.bandwidth)
-    .attr('height', (d, i) => {return graphHeight - y(d[xDomain[i]])})
-    .attr('fill', 'teal')
-    .attr('x', d => x((Object.keys(d)[0])))
-    .attr('y', (d, i) => y(d[xDomain[i]]))
+  circles.enter()
+    .append('circle')
+    .attr('r', 4)
+    .attr('fill', 'white')
+    .attr('cx', (d, i) => (graphWidth/(xDomain.length-1) * i))
+    .attr('cy', (d, i) => y(d[xDomain[i]]))
+
 
   // Call Axes
   xAxisGroup.call(xAxis)
@@ -78,8 +89,6 @@ const update = (data) => {
 
   // Update axes text
   xAxisGroup.selectAll('text')
-    .attr('transform', 'rotate(-40)')
-    .attr('text-anchor', 'end')
     .attr('fill', 'white')
   yAxisGroup.selectAll('text')
     .attr('fill', 'white')

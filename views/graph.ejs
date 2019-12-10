@@ -11,37 +11,39 @@
 
 <h1 class="graphName"><%= graph.graphName %></h1>
 
-<div style="display:flex;">
-  <div class="table" style="width: 40%;">
+<div style="display:flex;" id="content">
+  <div id="table" style="width: 40%;">
     <div class="row">
         <form class="col s12">
-          <% for (let i = 0; i < graph.graphInfo.length; i++) { %>
-            <div class="each">
-              <i class="small material-icons cancel">cancel</i>
-              <div class="row field">
-                <div class="input-field col s6">
-                  <input type="text" class="input" value="<%= [Object.keys(graph.graphInfo[i])[0]] %>">
-                  <label>Input</label>
-                </div>
-                <div class="input-field col s6">
-                  <input type="text" class="value" value="<%= [Object.values(graph.graphInfo[i])[0]] %>">
-                  <label>Value</label>
-                </div>
-              </div>
-            </div>
-          <% } %>
+
+
+        <% for (let i = 0; i < graph.graphInfo.length; i++) { %>
           <div class="each">
-            <div class="row field each">
+            <i class="small material-icons cancel">cancel</i>
+            <div class="row field">
               <div class="input-field col s6">
-                <input type="text" class="input newInput">
+                <input type="text" class="input" value="<%= [Object.keys(graph.graphInfo[i])[0]] %>">
                 <label>Input</label>
               </div>
               <div class="input-field col s6">
-                <input type="text" class="value newValue">
+                <input type="text" class="value" value="<%= [Object.values(graph.graphInfo[i])[0]] %>">
                 <label>Value</label>
               </div>
             </div>
           </div>
+        <% } %>
+        <div class="each">
+          <div class="row field each">
+            <div class="input-field col s6">
+              <input type="text" class="input newInput">
+              <label>Input</label>
+            </div>
+            <div class="input-field col s6">
+              <input type="text" class="value newValue">
+              <label>Value</label>
+            </div>
+          </div>
+        </div>
 
         </form>
       </div>
@@ -62,4 +64,8 @@
 <% if (graph.graphType === "Pie") { %>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js" charset="utf-8"></script>
   <script src="/js/pie.js" charset="utf-8"></script>
+<% } %>
+<% if (graph.graphType === "Line") { %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js" charset="utf-8"></script>
+  <script src="/js/line.js" charset="utf-8"></script>
 <% } %>
