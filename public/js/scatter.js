@@ -26,7 +26,7 @@ const graph = svg.append('g')
 const y = d3.scaleLinear()
   .range([graphHeight, 0]);
 
-const x = d3.scalePoint()
+const x = d3.scaleLinear()
   .range([0, graphWidth])
 
 // Create axes group
@@ -42,24 +42,11 @@ const update = (data) => {
 
   // Set scale domains
   const xDomain = data.map(item => Object.keys(item)[0])
+  const xMax = d3.max(data, d => Number(Object.keys(d)[0]))
   const yMax = d3.max(data, d => Number(Object.values(d)[0]))
 
   y.domain([0, yMax])
-  x.domain(xDomain)
-
-  // D3 line generator
-  const line = d3.line()
-    .x(function(d, i){return (graphWidth/(xDomain.length-1) * i)})
-    .y(function(d, i){return y(d[xDomain[i]])})
-
-  // Line Path Element
-  const path = graph.append('path')
-
-  path.data([data])
-    .attr('fill', 'none')
-    .attr('stroke', 'teal')
-    .attr('stroke-width', '2')
-    .attr('d', line)
+  x.domain([0, xMax])
 
   // Join data to circles
   const circles = graph.selectAll('circle')
@@ -71,7 +58,7 @@ const update = (data) => {
     .append('circle')
     .attr('r', 4)
     .attr('fill', 'white')
-    .attr('cx', (d, i) => (graphWidth/(xDomain.length-1) * i))
+    .attr('cx', (d, i) => x(xDomain[i]))
     .attr('cy', (d, i) => y(d[xDomain[i]]))
 
 

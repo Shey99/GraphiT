@@ -66,6 +66,8 @@
   <script src="/js/pie.js" charset="utf-8"></script>
 <% } %>
 <% if (graph.graphType === "Line") { %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js" charset="utf-8"></script>
   <script src="/js/line.js" charset="utf-8"></script>
+<% } %>
+<% if (graph.graphType === "Scatter") { %>
+  <script src="/js/scatter.js" charset="utf-8"></script>
 <% } %>
