@@ -79,6 +79,13 @@ var generateGraph = () => {
 }
 generateGraph()
 
+$(document).ready(function(){
+      $('.modal').modal();
+    });
+
+// Embed Code
+document.querySelector('.graphCode').textContent = document.querySelector('.canvas').innerHTML
+
 submitFields.addEventListener('click', () => {
   let arr = [];
   let inputs = document.querySelectorAll('.input');

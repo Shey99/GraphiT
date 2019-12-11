@@ -125,6 +125,13 @@ const generateData = () => {
 
 update(generateData())
 
+$(document).ready(function(){
+      $('.modal').modal();
+    });
+
+// Embed Code
+document.querySelector('.graphCode').textContent = document.querySelector('.canvas').innerHTML
+
 submitFields.addEventListener('click', () => {
   xAxisVal = document.querySelector('.xAxis').value
   yAxisVal = document.querySelector('.yAxis').value

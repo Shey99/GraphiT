@@ -6,9 +6,16 @@
 <nav>
   <a class="waves-effect waves-light btn red delete">Delete Graph</a>
   <a href="/dashboard" class="btn back">Back to Dashboard</a>
+  <a class="btn blue darken-3 modal-trigger embed" href="#embed">Embed</a>
   <a href="#" class="waves-effect waves-light btn green lighten-1 download">Download</a>
 </nav>
 
+<div id="embed" class="modal" style="height: auto">
+  <div class="modal-content">
+    <h2 style="font-size: 40px; line-height: 3">Copy & Paste the following Code</h2>
+    <p class='graphCode'</p>
+  </div>
+</div>
 
 <h1 class="graphName"><%= graph.graphName %></h1>
 
@@ -63,10 +70,10 @@
   <div class="canvas">
   </div>
 
-
 </div>
 
 <br>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://d3js.org/d3.v5.js"></script>
 <% if (graph.graphType === "Bar") { %>
   <script src="/js/bar.js" charset="utf-8"></script>
