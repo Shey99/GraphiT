@@ -4,6 +4,7 @@
 
 ## Description
 
+GraphiT allows you to generate beautiful, multi-purpose graphs right on the browser removing any learning curve. 
 
 Technologies used:
 <ul>
