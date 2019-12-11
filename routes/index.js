@@ -34,11 +34,13 @@ router.post('/createGraph', (req, res) => {
     email: req.user.email,
     graphName: req.body.graphName,
     graphType: req.body.graphType,
-    graphInfo: []
+    graphInfo: [],
+    xAxis: req.body.xAxis,
+    yAxis: req.body.yAxis
   })
   newGraph.save()
-    .then( () => {
-      res.redirect('/users/login');
+    .then(graph => {
+      console.log(graph);
     })
     .catch(err => console.log(err));
 })
@@ -46,7 +48,7 @@ router.post('/createGraph', (req, res) => {
 router.put('/graphs/changeGraph', (req, res) => {
   Graph.findOneAndUpdate({email: req.user.email, graphName: req.body.graphName},
     {
-      $set: {graphInfo: req.body.graphInfo}
+      $set: {graphInfo: req.body.graphInfo, xAxis: req.body.xAxis, yAxis: req.body.yAxis}
     },
     (err, result) => {
     if (err) return res.send(err)

@@ -27,7 +27,9 @@ createBtn.addEventListener('click', () => {
           },
           body: JSON.stringify({
             graphName: graphName.value,
-            graphType: graphType.innerHTML
+            graphType: graphType.innerHTML,
+            xAxis: '',
+            yAxis: ''
           })
         })
         .then(response => {
@@ -35,6 +37,5 @@ createBtn.addEventListener('click', () => {
         })
         .then(data => {
           console.log(data)
-          window.location.reload(true)
         })
 })

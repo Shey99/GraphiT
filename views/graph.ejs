@@ -16,8 +16,6 @@
   <div id="table" style="width: 40%;">
     <div class="row">
         <form class="col s12">
-
-
         <% for (let i = 0; i < graph.graphInfo.length; i++) { %>
           <div class="each">
             <i class="small material-icons cancel">cancel</i>
@@ -28,7 +26,7 @@
               </div>
               <div class="input-field col s6">
                 <input type="text" class="value" value="<%= [Object.values(graph.graphInfo[i])[0]] %>">
-                <label>Value</label>
+                <label>Output</label>
               </div>
             </div>
           </div>
@@ -47,6 +45,17 @@
         </div>
 
         </form>
+
+        <% if (graph.graphType === "Bar" || graph.graphType === "Line" || graph.graphType === "Scatter") { %>
+        <div class="input-field col s5">
+          <input type="text" class="xAxis" value="<%= graph.xAxis %>">
+          <label>x-axis Label</label>
+        </div>
+        <div class="input-field col s5">
+          <input type="text" class="yAxis" value="<%= graph.yAxis %>">
+          <label>y-axis Label</label>
+        </div>
+        <% } %>
       </div>
       <button type="submit" name="button" class="btn submitFields">Submit</button><br>
   </div>

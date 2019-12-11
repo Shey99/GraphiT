@@ -5,6 +5,8 @@ const graphName = document.querySelector('.graphName').innerHTML;
 const cancel = document.querySelectorAll('.cancel');
 const download = document.querySelector('.download');
 const del = document.querySelector('.delete')
+let xAxisVal = document.querySelector('.xAxis').value
+let yAxisVal = document.querySelector('.yAxis').value
 
 // Select SVG container
 const svg = d3.select('.canvas')
@@ -38,6 +40,24 @@ const yAxisGroup = graph.append('g')
 // Create axis
 const xAxis = d3.axisBottom(x)
 const yAxis = d3.axisLeft(y)
+
+// x-axis label
+var xAxisLabel = svg.append("text")
+  .attr("class", "x label")
+  .attr("text-anchor", "end")
+  .attr("x", graphWidth)
+  .attr("y", 580)
+  .attr('fill', 'white')
+
+// y-axis label
+var yAxisLabel = svg.append("text")
+  .attr("class", "y label")
+  .attr("text-anchor", "end")
+  .attr("y", 25)
+  .attr("x", -150)
+  .attr("dy", ".75em")
+  .attr("transform", "rotate(-90)")
+  .attr('fill', 'white')
 
 // Update Function
 const update = (data) => {
@@ -84,7 +104,9 @@ const update = (data) => {
   yAxisGroup.selectAll('text')
     .attr('fill', 'white')
 
-
+  // Update Axes labels
+  xAxisLabel.text(xAxisVal)
+  yAxisLabel.text(yAxisVal)
 }
 
 const generateData = () => {
@@ -104,6 +126,8 @@ const generateData = () => {
 update(generateData())
 
 submitFields.addEventListener('click', () => {
+  xAxisVal = document.querySelector('.xAxis').value
+  yAxisVal = document.querySelector('.yAxis').value
   let table = document.querySelector('#table')
   let arr = [];
   let inputs = document.querySelectorAll('.input');
@@ -122,7 +146,9 @@ submitFields.addEventListener('click', () => {
       },
       body: JSON.stringify({
         graphInfo: arr,
-        graphName: graphName
+        graphName: graphName,
+        xAxis: xAxisVal,
+        yAxis: yAxisVal
       })
     })
     .then(response => {
@@ -147,7 +173,7 @@ for (let i = 0; i < cancel.length; i++) {
         body: JSON.stringify({
           input: inputs[i].value,
           value: value[i].value,
-          graphName: graphName
+          graphName: graphName,
         })
       })
       .then(res => {

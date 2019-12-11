@@ -18,6 +18,14 @@ const GraphSchema = new Schema({
     type: Array,
     required: true
   },
+  xAxis: {
+    type: String,
+    required: false
+  },
+  yAxis: {
+    type: String,
+    required: false
+  },
 });
 
 const Graph = mongoose.model('Graph', GraphSchema, 'graphs');
