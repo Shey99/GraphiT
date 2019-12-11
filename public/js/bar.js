@@ -4,7 +4,7 @@ const form = document.querySelector('form');
 const graphName = document.querySelector('.graphName').innerHTML;
 const cancel = document.querySelectorAll('.cancel');
 const download = document.querySelector('.download');
-
+const del = document.querySelector('.delete')
 
 // Select SVG container
 const svg = d3.select('.canvas')
@@ -171,4 +171,23 @@ download.addEventListener('click', () => {
       link.href = dataUrl;
       link.click();
     });
+})
+
+del.addEventListener('click', () => {
+  fetch('/graphs/deleteGraph', {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        graphName: graphName
+      })
+    })
+    .then(res => {
+      if (res.ok) return res.json()
+    }).
+  then(data => {
+    console.log(data)
+    window.location.href = '/dashboard'
+  })
 })
