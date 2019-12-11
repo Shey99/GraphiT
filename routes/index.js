@@ -65,4 +65,12 @@ router.put('/graphs/deleteField', (req, res) => {
     })
 })
 
+router.delete('/graphs/deleteGraph', (req, res) => {
+  Graph.findOneAndDelete({ email: req.user.email, graphName: req.body.graphName},
+    (err, result) => {
+      if (err) return res.send(500, err)
+      res.send(result)
+    })
+})
+
 module.exports = router;

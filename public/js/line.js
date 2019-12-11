@@ -37,6 +37,7 @@ const yAxisGroup = graph.append('g')
 const xAxis = d3.axisBottom(x)
 const yAxis = d3.axisLeft(y)
 
+
 // Update Function
 const update = (data) => {
 

@@ -16,8 +16,11 @@ h1 {
   font-size: 50px;
   margin-bottom: 3%;
 }
-.back {
+.delete {
   margin-left: auto;
+  margin-right: 3%;
+}
+.back {
   margin-right: 3%;
 }
 .download {
@@ -46,4 +49,7 @@ input {
 .each {
   display: flex;
   align-items: center;
+}
+.canvas {
+  height: 600px;
 }

@@ -36,6 +36,7 @@ const yAxisGroup = graph.append('g')
 // Create axis
 const xAxis = d3.axisBottom(x)
 const yAxis = d3.axisLeft(y)
+  .ticks(10)
 
 // Update Function
 const update = (data) => {
@@ -151,7 +152,7 @@ for (let i = 0; i < cancel.length; i++) {
 download.addEventListener('click', () => {
   const canvas = document.querySelector('.canvas');
   domtoimage.toPng(canvas, {
-      quality: 0
+      quality: 1.0
     })
     .then(function(dataUrl) {
       var link = document.createElement('a');
