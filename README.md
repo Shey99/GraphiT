@@ -11,6 +11,7 @@ Technologies used:
   <li>EJS</li>
   <li>CSS</li>
   <li>JavaScript</li>
+  <li>D3.js</li>
   <li>Express</li>
   <li>MongoDB</li>
  </ul>
